@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/cadecairos/hapi-limiter.svg?branch=master)](https://travis-ci.org/cadecairos/hapi-limiter)
+[![Coverage Status](https://coveralls.io/repos/cadecairos/hapi-limiter/badge.svg)](https://coveralls.io/r/cadecairos/hapi-limiter)
+
 # hapi-limiter
 Rate limiting plugin for Hapi, inspired by [hapi-ratelimit](https://github.com/creativelive/hapi-ratelimit), but using hapi's
 builtin server cache interface.
