@@ -101,9 +101,12 @@ exports.register =  function(server, options, done) {
       pluginSettings[hapiLimiter].enable
     ) {
       response = request.response;
-      response.headers['X-Rate-Limit-Limit'] = request.plugins[hapiLimiter].limit;
-      response.headers['X-Rate-Limit-Remaining'] = request.plugins[hapiLimiter].remaining;
-      response.headers['X-Rate-Limit-Reset'] = request.plugins[hapiLimiter].reset;
+      var headers = response.headers || response.output ? response.output.headers : null;
+      if(headers){
+        headers['X-Rate-Limit-Limit'] = request.plugins[hapiLimiter].limit;
+        headers['X-Rate-Limit-Remaining'] = request.plugins[hapiLimiter].remaining;
+        headers['X-Rate-Limit-Reset'] = request.plugins[hapiLimiter].reset;
+      }
     }
 
     reply.continue();
